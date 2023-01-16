@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../store";
-
+import type { RootState } from "../app/store";
 
 export interface basketState {
   value: number;
@@ -20,13 +19,13 @@ export const basketSlice = createSlice({
     },
     decrement: (state) => {
       state.value -= 1;
-    }
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement  } = basketSlice.actions;
+export const { increment, decrement } = basketSlice.actions;
 
-export const itemsInBasket = (state:RootState) => state.basket.value;
+export const itemsInBasket = (state: RootState) => state.basket.value;
 
 export default basketSlice.reducer;

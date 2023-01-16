@@ -1,8 +1,7 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import { store } from "../store";
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import { store } from "../src/app/store";
 import { Provider } from "react-redux";
-
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -12,4 +11,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp
+export default MyApp;

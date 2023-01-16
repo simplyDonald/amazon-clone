@@ -1,15 +1,15 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import { useSelector, useDispatch } from 'react-redux'
-import { increment, decrement } from '../slices/basketSlice'
-import { itemsInBasket } from '../slices/basketSlice'
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import { useSelector, useDispatch } from "react-redux";
+import { increment, decrement } from "../src/slices/basketSlice";
+import { itemsInBasket } from "../src/slices/basketSlice";
 
 const Home: NextPage = () => {
   const count = useSelector(itemsInBasket);
   const dispatch = useDispatch();
   console.log(count);
-  
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
@@ -38,6 +38,6 @@ const Home: NextPage = () => {
       </footer>
     </div>
   );
-}
+};
 
-export default Home
+export default Home;

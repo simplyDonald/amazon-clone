@@ -13,7 +13,7 @@ const Home: NextPage = () => {
   console.log(count);
 
   return (
-    <div className="">
+    <div className="bg-gray-100">
       <Head>
         <title>Amazon-clone</title>
         <link rel="icon" href="/amazon.ico" />
@@ -22,7 +22,6 @@ const Home: NextPage = () => {
       <Header />
 
       <main className="max-w-screen-2xl mx-auto">
-        {/* Banner */}
         <Banner />
 
         {/* Product feed */}

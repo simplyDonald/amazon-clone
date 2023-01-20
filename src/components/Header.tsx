@@ -47,11 +47,11 @@ const Header: FC<IHeaderProps> = (props) => {
             <p className="font-extrabold md:text-sm">& Orders</p>
           </div>
 
-          <div className="relative flex items-center link">
+          <div className=" hover:animate-wiggle relative flex items-center link">
             <span className="absolute top-0 right-0 md:right-7  h-4 w-4 bg-yellow-400 text-center text-black rounded-full">
               0
             </span>
-            <ShoppingCartIcon className="h-10" />
+            <ShoppingCartIcon className="h-10 " />
             <p className="hidden md:inline font-extrabold mt-2 md:text-sm">
               Basket
             </p>
@@ -60,20 +60,20 @@ const Header: FC<IHeaderProps> = (props) => {
       </div>
 
       {/* bottom nav */}
-      <div className='flex items-center bg-amazon_blue-light text-white text-sm space-x-3 p-2 pl-6'>
-        <p className='link flex items-center'>
+      <div className="flex items-center bg-amazon_blue-light text-white text-sm space-x-3 p-2 pl-6">
+        <p className="link flex items-center">
           <Bars3Icon className="h-6 mr-1" />
           All
         </p>
-        <p className='link'>Prime Video</p>
-        <p className='link'>Amazon Business</p>
-        <p className='link'>Today's Deals</p>
-        <p className='hidden lg:inline-flex link'>Electronics</p>
-        <p className='hidden lg:inline-flex link'>Food & Grocery</p>
-        <p className='hidden lg:inline-flex link'>Prime</p>
-        <p className='hidden lg:inline-flex link'>Buy Again</p>
-        <p className='hidden lg:inline-flex link'>Shopper Toolkit</p>
-        <p className='hidden lg:inline-flex link'>Health & Personal Care</p>
+        <p className="link">Prime Video</p>
+        <p className="link">Amazon Business</p>
+        <p className="link">Today's Deals</p>
+        <p className="hidden lg:inline-flex link">Electronics</p>
+        <p className="hidden lg:inline-flex link">Food & Grocery</p>
+        <p className="hidden lg:inline-flex link">Prime</p>
+        <p className="hidden lg:inline-flex link">Buy Again</p>
+        <p className="hidden lg:inline-flex link">Shopper Toolkit</p>
+        <p className="hidden lg:inline-flex link">Health & Personal Care</p>
       </div>
     </header>
   );

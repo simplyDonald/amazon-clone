@@ -8,6 +8,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        wiggle: 'wiggle .2s ease-in-out 5',
+      },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        }
+      },
       colors: {
         amazon_blue: {
           light: '#232f3e',

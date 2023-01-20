@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
 import Banner from "../src/components/Banner";
 import Header from "../src/components/Header";
+import ProductFeed from "../src/components/ProductFeed";
 import { increment, decrement } from "../src/slices/basketSlice";
 import { itemsInBasket } from "../src/slices/basketSlice";
 
@@ -24,7 +25,7 @@ const Home: NextPage = () => {
       <main className="max-w-screen-2xl mx-auto">
         <Banner />
 
-        {/* Product feed */}
+        <ProductFeed />
       </main>
 
     </div>

@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import { NextPageContext } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,10 +9,10 @@ import ProductFeed from "../src/components/ProductFeed";
 import { increment, decrement } from "../src/slices/basketSlice";
 import { itemsInBasket } from "../src/slices/basketSlice";
 
-const Home: NextPage = () => {
+
+const Home: NextPage = ({ products }) => {
   const count = useSelector(itemsInBasket);
   const dispatch = useDispatch();
-  console.log(count);
 
   return (
     <div className="bg-gray-100">
@@ -25,11 +26,24 @@ const Home: NextPage = () => {
       <main className="max-w-screen-2xl mx-auto">
         <Banner />
 
-        <ProductFeed />
+        <ProductFeed products={products} />
       </main>
-
     </div>
   );
 };
 
 export default Home;
+
+
+export async function getServerSideProps(params: NextPageContext) {
+  const products = await fetch("https://fakestoreapi.com/products").then(
+    (res) => res.json()
+  );
+
+  return {
+    props: {
+      products,
+    }
+
+  }
+}

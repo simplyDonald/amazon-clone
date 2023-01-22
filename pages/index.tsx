@@ -8,9 +8,9 @@ import Header from "../src/components/Header";
 import ProductFeed from "../src/components/ProductFeed";
 import { increment, decrement } from "../src/slices/basketSlice";
 import { itemsInBasket } from "../src/slices/basketSlice";
-import { Product } from "../src/typings";
+import { IProduct } from "../src/typings";
 
-const Home: NextPage<{products: Product[]}> = ({ products }) => {
+const Home: NextPage<{products: IProduct[]}> = ({ products }) => {
   const count = useSelector(itemsInBasket);
   const dispatch = useDispatch();
 

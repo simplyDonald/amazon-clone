@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import React from "react";
 import { IProduct } from '../typings';
 import Product from '../components/Product';
 
@@ -6,7 +7,7 @@ import Product from '../components/Product';
 
 
 
-const ProductFeed: FC<{products: Product[]}> = ({products}) => {
+const ProductFeed: FC<{products: IProduct[]}> = ({products}) => {
   return (
     <div className="grid grid-flow-row-dense md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:-mt-52 mx-auto">
       {products

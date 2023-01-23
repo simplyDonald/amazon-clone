@@ -1,8 +1,8 @@
 import Image from 'next/image';
+import React from "react";
 import {FC, useState} from 'react';
 import {IProductProps} from '../typings';
 import {StarIcon} from '@heroicons/react/24/solid';
-import {HeartIcon} from '@heroicons/react/24/outline';
 
 
 const MAX_RATING = 5;
@@ -40,7 +40,7 @@ const Product: FC<IProductProps> = ({
       <div className="flex">
         {/* create an array and fill it with the random raing number */}
         {Array(rating)
-          .fill()
+          .fill(rating)
           .map((_, i) => (
             <StarIcon key={i} className="h-5 text-yellow-500" />
           ))}

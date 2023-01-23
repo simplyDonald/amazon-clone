@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import React from "react";
 import Image from 'next/image';
 import {
   Bars3Icon,
@@ -6,11 +7,9 @@ import {
   ShoppingCartIcon,
 } from "@heroicons/react/24/outline";
 
-interface IHeaderProps {
 
-}
 
-const Header: FC<IHeaderProps> = (props) => {
+const Header: FC = () => {
   return (
     <header className="">
       {/* top nav */}

@@ -12,7 +12,7 @@ export interface IProduct {
 }
 
 export interface IProductProps {
-  id: string;
+  id: number;
   title: string;
   price: number;
   description: string;

@@ -25,10 +25,10 @@ const Product: FC<IProductProps> = ({
 
 
   return (
-    <div className="relative grid m-5 bg-white z-30 p-10">
+    <div className="relative grid m-5 bg-white z-30 p-10 group">
       <p className="absolute top-2 right-2 text-xs italic">{category}</p>
       <Image
-        className='justify-self-center'
+        className='group-hover:scale-110 transition duration-300 ease-in-out transform justify-self-center'
         alt=""
         src={image}
         height={200}

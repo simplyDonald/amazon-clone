@@ -9,7 +9,9 @@ import ProductFeed from "../src/components/ProductFeed";
 import { itemsInBasket } from "../src/slices/basketSlice";
 import { IProduct } from "../src/typings";
 
-const Home: NextPage<{products: IProduct[]}> = ({ products }) => {
+const Home: NextPage<{ products: IProduct[] }> = ({
+  products,
+}) => {
   const count = useSelector(itemsInBasket);
   const dispatch = useDispatch();
 

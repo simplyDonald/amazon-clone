@@ -52,6 +52,13 @@ const Banner: FC<IBannerProps> = (props) => {
             alt=""
           />
         </div>
+        <div>
+          <img
+            loading="lazy"
+            src="https://m.media-amazon.com/images/I/71tIrZqybrL._SX3000_.jpg"
+            alt=""
+          />
+        </div>
       </Carousel>
     </div>
   );

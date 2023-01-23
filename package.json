@@ -9,6 +9,7 @@
     "@heroicons/react": "^2.0.13",
     "@reduxjs/toolkit": "^1.9.1",
     "@tailwindcss/line-clamp": "^0.4.2",
+    "framer-motion": "^8.5.0",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",

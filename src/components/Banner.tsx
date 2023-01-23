@@ -24,10 +24,33 @@ const Banner: FC<IBannerProps> = (props) => {
         </div>
 
         <div>
-          <img loading="lazy" src="https://links.papareact.com/6ff" alt="" />
+          <img
+            loading="lazy"
+            src="https://m.media-amazon.com/images/I/71a1nX9Kf0L._SX3000_.jpg"
+            alt=""
+          />
         </div>
         <div>
-          <img loading="lazy" src="https://links.papareact.com/7ma" alt="" />
+          <img
+            loading="lazy"
+            src="https://m.media-amazon.com/images/I/51oPLhUx7kL._SX3000_.jpg"
+            alt=""
+          />
+        </div>
+
+        <div>
+          <img
+            loading="lazy"
+            src="https://images-na.ssl-images-amazon.com/images/G/15/kindle/merch/2019/4852331/GatewayENCA-TallHero-1500x600._CB413527478_.jpg"
+            alt=""
+          />
+        </div>
+        <div>
+          <img
+            loading="lazy"
+            src="https://m.media-amazon.com/images/I/51JxZ9oEV6L._SX3000_.jpg"
+            alt=""
+          />
         </div>
       </Carousel>
     </div>

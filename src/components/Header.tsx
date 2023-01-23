@@ -29,7 +29,7 @@ const Header: FC = () => {
         <div className="hidden sm:flex items-center h-10 rounded-md flex-grow cursor-pointer  bg-yellow-400 hover:bg-yellow-500">
           <input
             type="text"
-            className="p-2 h-full w-6 rounded-md flex-grow flex-shrink rounded-l-md cursor-pointer focus:outline-none px-4 "
+            className="p-2 h-full w-6 rounded-md flex-grow flex-shrink rounded-l-md  focus:outline-none px-4 "
           />
           <MagnifyingGlassIcon className="h-12 p-4 " />
         </div>

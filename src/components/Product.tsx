@@ -44,7 +44,7 @@ const Product: FC<IProductProps> = ({
       className="relative grid m-5 bg-white z-30 p-10 group"
       variants={itemVariants}
       initial="hidden"
-      animate="visible"
+      whileInView="visible"
       viewport={{ once: true }}
     >
       <p className="absolute top-2 right-2 text-xs italic">{category}</p>

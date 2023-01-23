@@ -10,3 +10,12 @@ export interface IProduct {
     count: number;
   };
 }
+
+export interface IProductProps {
+  id: string;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+}

@@ -14,9 +14,10 @@ export const authOptions = {
     // }),
     // ...add more providers here
     GoogleProvider({
-      clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
-    })
+      clientId:
+        "748843727757-do4m0teuilhres8q8ae1qi5irkmck2hv.apps.googleusercontent.com",
+      clientSecret: "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",
+    }),
   ],
 };
 export default NextAuth(authOptions);

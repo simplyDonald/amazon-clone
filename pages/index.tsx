@@ -10,7 +10,7 @@ import { itemsInBasket } from "../src/slices/basketSlice";
 import { IProduct } from "../src/typings";
 
 const Home: NextPage<{ products: IProduct[] }> = ({
-  products,
+  products
 }) => {
   const count = useSelector(itemsInBasket);
   const dispatch = useDispatch();
@@ -43,7 +43,7 @@ export async function getServerSideProps(params: NextPageContext) {
 
   return {
     props: {
-      products,
+      products
     }
 
   }

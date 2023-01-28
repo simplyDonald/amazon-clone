@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC } from "react";
 import React from "react";
 import { IProduct } from '../typings';
 import Product from '../components/Product';
@@ -46,6 +46,7 @@ const ProductFeed: FC<{products: IProduct[]}> = ({products}) => {
           ))}
       </div>
       {products
+        .slice(5, products.length)
         .map(({ id, title, price, description, category, image }) => (
           <Product
             key={id}

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from "react";
-import {FC, useState} from 'react';
+import { FC, useState, useEffect } from "react";
+
 import {IProductProps} from '../typings';
 import {StarIcon} from '@heroicons/react/24/solid';
 import { motion } from "framer-motion";
@@ -18,11 +19,13 @@ const Product: FC<IProductProps> = ({
   category,
   image,
 }) => { 
+  const [mounted, setMounted] = useState(false);
+
   // randomize number of stars
   const [rating] = useState(Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1) + MIN_RATING));
-
+  
   const [hasPrime] = useState(Math.random() < 0.5);
-
+  
   const itemVariants = {
     hidden: {
       opacity: 0,
@@ -38,7 +41,10 @@ const Product: FC<IProductProps> = ({
       },
     },
   };
-
+  useEffect(() => setMounted(true), []);
+  
+  if (!mounted) return null;
+  
   return (
     <motion.div
       className="relative grid m-5 bg-white z-30 p-10 group"

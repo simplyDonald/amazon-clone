@@ -7,10 +7,12 @@ import {
   ShoppingCartIcon,
 } from "@heroicons/react/24/outline";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 
 const Header: FC = () => {
   const { data: session } = useSession();
+  const router = useRouter();
   
   return (
     <header className="">
@@ -18,6 +20,7 @@ const Header: FC = () => {
       <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
         <div className="mt-2 pr-6 flex items-center flex-grow sm:flex-grow-0">
           <Image
+            onClick={() => router.push("/")}
             src="https://links.papareact.com/f90"
             className="cursor-pointer"
             alt="logo"
@@ -51,7 +54,10 @@ const Header: FC = () => {
             <p className="font-extrabold md:text-sm">& Orders</p>
           </div>
 
-          <div className="hover:animate-wiggle relative flex items-center link">
+          <div 
+          className="hover:animate-wiggle relative flex items-center link"
+            onClick={() => router.push("/checkout")}
+          >
             <span className="absolute top-0 right-0 h-4 w-4 bg-yellow-400 text-center text-black rounded-full  group-hover:animate-wiggle">
               0
             </span>

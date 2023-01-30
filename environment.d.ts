@@ -5,6 +5,10 @@ declare global {
       GOOGLE_SECRET: string; // this is the line you want
       PORT?: string;
       PWD?: string;
+      GITHUB_ID: string;
+      GITHUB_SECRET: string;
+      NEXTAUTH_URL?: string | undefined;
+
     }
   }
 }

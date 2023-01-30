@@ -3,22 +3,33 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../app/store";
 
 export interface basketState {
-  value: number;
+  items: {}[];
 }
 
 const initialState: basketState = {
-  value: 98,
+  items: [],
 };
 
 export const basketSlice = createSlice({
   name: "basket",
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
+    addToBasket: (state,action) => {
+      state.items = [...state.items, action.payload];
     },
-    decrement: (state) => {
-      state.value -= 1;
+    removeFromBasket: (state, action) => {
+      const index = state.items.findIndex(
+        (basketItem: any) => basketItem.id === action.payload.id
+      );
+      let newBasket = [...state.items];
+      if (index >= 0) {
+        newBasket.splice(index, 1);
+      } else {
+        console.warn(
+          `Can't remove product (id: ${action.payload.id}) as its not in basket!`
+        );
+      }
+      state.items = newBasket;
     },
   },
 });

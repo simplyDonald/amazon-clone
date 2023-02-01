@@ -1,15 +1,15 @@
-import Image from 'next/image';
+import Image from "next/image";
 import React from "react";
 import { FC, useState, useEffect } from "react";
-
-import {IProductProps} from '../typings';
-import {StarIcon} from '@heroicons/react/24/solid';
+import { itemVariants } from "../framer/motion";
+import { IProductProps } from "../types/typings";
+import { StarIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
-
+import { useDispatch } from "react-redux";
+import { addToBasket } from "../slices/basketSlice";
 
 const MAX_RATING = 5;
 const MIN_RATING = 1;
-
 
 const Product: FC<IProductProps> = ({
   id,
@@ -18,33 +18,39 @@ const Product: FC<IProductProps> = ({
   description,
   category,
   image,
-}) => { 
+}) => {
   const [mounted, setMounted] = useState(false);
 
   // randomize number of stars
-  const [rating] = useState(Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1) + MIN_RATING));
-  
+  const [rating] = useState(
+    Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1) + MIN_RATING)
+  );
+
   const [hasPrime] = useState(Math.random() < 0.5);
-  
-  const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "tween",
-        duration: 1,
-        delay: 0.3,
-      },
-    },
-  };
+
+
   useEffect(() => setMounted(true), []);
-  
+
   if (!mounted) return null;
-  
+
+  const dispatch = useDispatch();
+
+  const addItemToBasket = () => {
+    const product = {
+      id,
+      title,
+      price,
+      description,
+      category,
+      image,
+      rating,
+      hasPrime,
+    };
+
+    // send the product as an action to the redux store
+    dispatch(addToBasket(product));
+  };
+
   return (
     <motion.div
       className="relative grid m-5 bg-white z-30 p-10 group"
@@ -83,7 +89,12 @@ const Product: FC<IProductProps> = ({
         </div>
       )}
 
-      <button className="mt-auto button">Add to Basket</button>
+      <button 
+        onClick={addItemToBasket} 
+        className="mt-auto button"
+      >
+        Add to Basket
+      </button>
     </motion.div>
   );
 };

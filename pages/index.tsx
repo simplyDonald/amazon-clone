@@ -7,11 +7,9 @@ import Banner from "../src/components/Banner";
 import Header from "../src/components/Header";
 import ProductFeed from "../src/components/ProductFeed";
 import { itemsInBasket } from "../src/slices/basketSlice";
-import { IProduct } from "../src/typings";
+import { IProduct } from "../src/types/typings";
 
-const Home: NextPage<{ products: IProduct[] }> = ({
-  products
-}) => {
+const Home: NextPage<{ products: IProduct[] }> = ({ products }) => {
   const count = useSelector(itemsInBasket);
   const dispatch = useDispatch();
 
@@ -35,7 +33,6 @@ const Home: NextPage<{ products: IProduct[] }> = ({
 
 export default Home;
 
-
 export async function getServerSideProps(params: NextPageContext) {
   const products = await fetch("https://fakestoreapi.com/products").then(
     (res) => res.json()
@@ -43,8 +40,7 @@ export async function getServerSideProps(params: NextPageContext) {
 
   return {
     props: {
-      products
-    }
-
-  }
+      products,
+    },
+  };
 }

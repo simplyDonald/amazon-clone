@@ -62,7 +62,7 @@ const Header: FC = () => {
             onClick={() => router.push("/checkout")}
           >
             <span className="absolute top-0 right-0 h-4 w-4 bg-yellow-400 text-center text-black rounded-full  group-hover:animate-wiggle">
-              0
+              {items.length}
             </span>
             <ShoppingCartIcon className="h-10" />
           </div>

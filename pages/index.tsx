@@ -2,16 +2,12 @@ import type { NextPage } from "next";
 import React from "react";
 import { NextPageContext } from "next";
 import Head from "next/head";
-import { useSelector, useDispatch } from "react-redux";
 import Banner from "../src/components/Banner";
 import Header from "../src/components/Header";
 import ProductFeed from "../src/components/ProductFeed";
-import { itemsInBasket } from "../src/slices/basketSlice";
 import { IProduct } from "../src/types/typings";
 
 const Home: NextPage<{ products: IProduct[] }> = ({ products }) => {
-  const count = useSelector(itemsInBasket);
-  const dispatch = useDispatch();
 
   return (
     <div className="bg-gray-100">

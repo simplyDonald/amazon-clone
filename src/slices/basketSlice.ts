@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 // import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../app/store";
+import { IProductProps } from "../types/typings";
 
 export interface basketState {
-  items: Array<{T}>;
+  items: Array<IProductProps>;
 }
 
 const initialState: basketState = {
@@ -39,4 +40,24 @@ export const { addToBasket, removeFromBasket } = basketSlice.actions;
 
 export const selectItems = (state: RootState) => state.basket.items;
 
+export const selectCartItems = (state: RootState) => {
+  const formattedProductObject = state.basket.items.reduce((acc, obj) => {
+    // If the accumulator object already has a property with the same id as the current object, increment the count for that id
+    if (acc[obj.id]) {
+      acc[obj.id].count++;
+    }
+    // If the accumulator object doesn't have a property with the same id as the current object, set the count for that id to 1
+    else {
+      acc[obj.id] = {
+        ...obj,
+        count: 1,
+      };
+    }
+    // Return the accumulator object
+    return acc;
+  }, {});
+
+  // Return the formattedProductObject object
+  return [...Object.values(formattedProductObject)];
+};
 export default basketSlice.reducer;

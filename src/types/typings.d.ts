@@ -19,3 +19,7 @@ export interface IProductProps {
   category: string;
   image: string;
 }
+
+export interface ICheckoutProductProps extends IProduct {
+  hasPrime: boolean;
+}

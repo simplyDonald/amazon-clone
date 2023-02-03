@@ -18,7 +18,7 @@ export const basketSlice = createSlice({
     addToBasket: (state,action) => {
       state.items = [...state.items, action.payload];
     },
-    removeFromBasket: (state, action) => {
+    removeBasketItem: (state, action) => {
       // const index = state.items.findIndex(
       //   (basketItem: any) => basketItem.id === action.payload.id
       // );
@@ -36,7 +36,7 @@ export const basketSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { addToBasket, removeFromBasket } = basketSlice.actions;
+export const { addToBasket, removeBasketItem } = basketSlice.actions;
 
 export const selectItems = (state: RootState) => state.basket.items;
 

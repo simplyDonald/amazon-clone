@@ -19,18 +19,18 @@ export const basketSlice = createSlice({
       state.items = [...state.items, action.payload];
     },
     removeBasketItem: (state, action) => {
-      // const index = state.items.findIndex(
-      //   (basketItem: any) => basketItem.id === action.payload.id
-      // );
-      // let newBasket = [...state.items];
-      // if (index >= 0) {
-      //   newBasket.splice(index, 1);
-      // } else {
-      //   console.warn(
-      //     `Can't remove product (id: ${action.payload.id}) as its not in basket!`
-      //   );
-      // }
-      // state.items = newBasket;
+      const index = state.items.findIndex(
+        (basketItem: any) => basketItem.id === action.payload.id
+      );
+      let newBasket = [...state.items];
+      if (index >= 0) {
+        newBasket.splice(index, 1);
+      } else {
+        console.warn(
+          `Can't remove product (id: ${action.payload.id}) as its not in basket!`
+        );
+      }
+      state.items = newBasket;
     },
   },
 });

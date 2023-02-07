@@ -2,7 +2,7 @@ import { StarIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 import * as React from 'react';
 import { ICheckoutProductProps } from '../types/typings';
-import { addToBasket, removeBasketItem } from '../slices/basketSlice'
+import { addToBasket, removeBasketItem, removeBasketGroup } from '../slices/basketSlice'
 import { useDispatch } from 'react-redux';
 import { TrashIcon } from "@heroicons/react/24/outline";
 
@@ -92,7 +92,9 @@ const CheckoutProduct: React.FunctionComponent<ICheckoutProductProps> = ({id, ti
             +
           </button>
         </div>
-        <button className="button">
+        <button className="button"
+          onClick={()=>{dispatch(removeBasketGroup({id}))}}
+        >
           <p>Remove from Basket</p>
         </button>
       </div>

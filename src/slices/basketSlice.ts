@@ -15,7 +15,7 @@ export const basketSlice = createSlice({
   name: "basket",
   initialState,
   reducers: {
-    addToBasket: (state,action) => {
+    addToBasket: (state, action) => {
       state.items = [...state.items, action.payload];
     },
     removeBasketItem: (state, action) => {
@@ -32,11 +32,17 @@ export const basketSlice = createSlice({
       }
       state.items = newBasket;
     },
+    removeBasketGroup: (state, action) => {
+    
+      let newBasket = state.items.filter((item: any) => item.id !== action.payload.id);
+      state.items = newBasket;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addToBasket, removeBasketItem } = basketSlice.actions;
+export const { addToBasket, removeBasketItem, removeBasketGroup } =
+  basketSlice.actions;
 
 export const selectItems = (state: RootState) => state.basket.items;
 

@@ -22,4 +22,5 @@ export interface IProductProps {
 
 export interface ICheckoutProductProps extends IProduct {
   hasPrime: boolean;
+  count: number;
 }

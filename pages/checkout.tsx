@@ -48,6 +48,7 @@ const Checkout: FC<ICheckoutProps> = (props) => {
                 category={item.category}
                 image={item.image}
                 hasPrime={item.hasPrime}
+                count={item.count}
               />
             ))}
           </div>

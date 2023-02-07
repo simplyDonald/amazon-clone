@@ -2,10 +2,11 @@ import { StarIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 import * as React from 'react';
 import { ICheckoutProductProps } from '../types/typings';
+import { addToBasket, removeBasketItem } from '../slices/basketSlice'
 
 
 
-const CheckoutProduct: React.FunctionComponent<ICheckoutProductProps> = ({id, title, price, rating,description, category, image, hasPrime}) => {
+const CheckoutProduct: React.FunctionComponent<ICheckoutProductProps> = ({id, title, price, rating,description, category, image, hasPrime , count}) => {
 
   const removeBasketItem = () => {
     // remove item from redux
@@ -49,14 +50,18 @@ const CheckoutProduct: React.FunctionComponent<ICheckoutProductProps> = ({id, ti
       <div className="flex flex-col space-y-2 my-auto justify-self-end">
         <div className="flex justify-between">
           {/* setup input field for Qty */}
-          <p className=" text-center flex-grow button cursor-pointer text-lg font-bold">-</p>
+          <button className=" text-center flex-grow button cursor-pointer text-lg font-bold focus:ring-yellow-100">
+            -
+          </button>
           <input
             type="number"
             min={1}
-            className=" bg-gray-200 w-12 text-lg text-center  text-gray-700"
-            value={6}
+            className=" bg-gray-100 w-12 text-lg text-center  text-gray-700 outline-none"
+            value={count}
           />
-          <p className="text-center flex-grow button cursor-pointer text-lg font-bold">+</p>
+          <button className="text-center flex-grow button cursor-pointer text-lg font-bold focus:ring-yellow-100">
+            +
+          </button>
         </div>
         <button onClick={removeBasketItem} className="button">
           <p>Remove from Basket</p>

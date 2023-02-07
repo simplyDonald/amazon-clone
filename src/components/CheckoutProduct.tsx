@@ -4,6 +4,7 @@ import * as React from 'react';
 import { ICheckoutProductProps } from '../types/typings';
 import { addToBasket, removeBasketItem } from '../slices/basketSlice'
 import { useDispatch } from 'react-redux';
+import { TrashIcon } from "@heroicons/react/24/outline";
 
 
 
@@ -75,9 +76,9 @@ const CheckoutProduct: React.FunctionComponent<ICheckoutProductProps> = ({id, ti
           {/* setup input field for Qty */}
           <button
             onClick={removeItemFromBasket}
-            className=" text-center flex-grow button cursor-pointer text-lg font-bold focus:ring-yellow-100"
+            className="flex justify-center items-center flex-grow button cursor-pointer text-lg font-bold focus:ring-yellow-100"
           >
-            -
+            {count !== 1 ? `-` : <TrashIcon className="h-5" />}
           </button>
           <input
             type="number"

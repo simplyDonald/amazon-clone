@@ -7,6 +7,8 @@ export interface basketState {
   items: Array<IProductProps>;
 }
 
+
+
 const initialState: basketState = {
   items: [],
 };
@@ -46,16 +48,12 @@ export const { addToBasket, removeBasketItem, removeBasketGroup } =
 
 export const selectItems = (state: RootState) => state.basket.items;
 
+
+
+interface BasketAccumulator extends Record<number, { count: number }> {}
+
 export const selectCartItems = (state: RootState) => {
-  const formattedProductObject: {
-    id: number;
-    title: string;
-    price: number;
-    description: string;
-    category: string;
-    image: string;
-    count: number;
-  } | {} = state.basket.items.reduce((acc, obj) => {
+  const formattedProductObject = state.basket.items.reduce((acc: BasketAccumulator, obj) => {
     // If the accumulator object already has a property with the same id as the current object, increment the count for that id
     if (acc[obj.id]) {
       acc[obj.id].count++;

@@ -74,7 +74,7 @@ const CheckoutProduct: React.FunctionComponent<ICheckoutProductProps> = ({id, ti
         <div className="flex justify-between">
           {/* setup input field for Qty */}
           <button
-            disabled={count === 1}
+            // disabled={count === 1}
             onClick={removeItemFromBasket}
             className={`flex justify-center items-center flex-grow button cursor-pointer text-lg font-bold focus:ring-yellow-100 
           `}

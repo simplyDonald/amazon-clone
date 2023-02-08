@@ -76,7 +76,8 @@ const CheckoutProduct: React.FunctionComponent<ICheckoutProductProps> = ({id, ti
           <button
             disabled={count === 1}
             onClick={removeItemFromBasket}
-            className="flex justify-center items-center flex-grow button cursor-pointer text-lg font-bold focus:ring-yellow-100 "
+            className={`flex justify-center items-center flex-grow button cursor-pointer text-lg font-bold focus:ring-yellow-100 
+          `}
           >
             -
           </button>
@@ -92,8 +93,11 @@ const CheckoutProduct: React.FunctionComponent<ICheckoutProductProps> = ({id, ti
             +
           </button>
         </div>
-        <button className="button"
-          onClick={()=>{dispatch(removeBasketGroup({id}))}}
+        <button
+          className="button"
+          onClick={() => {
+            dispatch(removeBasketGroup({ id }));
+          }}
         >
           <p>Remove from Basket</p>
         </button>

@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { selectCartItems, selectItems } from '../src/slices/basketSlice';
 import CheckoutProduct from '../src/components/CheckoutProduct';
 import {  ICheckoutProductProps } from '../src/types/typings';
+import {  useSession } from 'next-auth/react';
 
 
 interface ICheckoutProps {
@@ -13,8 +14,9 @@ interface ICheckoutProps {
 
 const Checkout: FC<ICheckoutProps> = (props) => {
 
+  const { data: session } = useSession();
   const cartItems = useSelector(selectCartItems) as ICheckoutProductProps[];
-
+  const quantity = cartItems.reduce((count, item) => count + item.count, 0);
 
 
   return (
@@ -56,24 +58,31 @@ const Checkout: FC<ICheckoutProps> = (props) => {
         </div>
 
         {/* right */}
-        <div>
+        <div className="flex flex-col bg-white p-10 shadow-md">
           {cartItems.length > 0 && (
             <>
-              <h2>
-                Subtotal (
-                {/* summation of the quantity of items in cartItems */}
-                {cartItems.reduce((count, item) => count + item.count, 0)})
-                items
+              <h2 className="wbitespace-nowrap">
+                Subtotal ({quantity}{" "}{quantity === 1 ? "item" : "items"}):{" "}
+                <span className="font-bold block">
+                  CAD{" "}
+                  {/* mathematical summation of the total price from cartItems */}
+                  {cartItems.reduce(
+                    (total, item) =>
+                      Number((total + item.count * item.price).toFixed(2)),
+                    0
+                  )}
+                </span>
               </h2>
-              <span>
-                CAD{" "}
-                {/* mathematical summation of the total price from cartItems */}
-                {cartItems.reduce(
-                  (total, item) =>
-                    Number((total + item.count * item.price).toFixed(2)),
-                  0
-                )}
-              </span>
+
+              <button
+                disabled={!session}
+                className={`button mt-2 ${
+                  !session &&
+                  "from-gray-500 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed"
+                }`}
+              >
+                {!session ? "Sign in to checkout" : "Proceed to checkout"}
+              </button>
             </>
           )}
         </div>

@@ -58,11 +58,11 @@ const Checkout: FC<ICheckoutProps> = (props) => {
         </div>
 
         {/* right */}
-        <div className="flex flex-col bg-white p-10 shadow-md">
+        <div className="flex flex-col bg-white p-10 shadow-md flex-shrink-0">
           {cartItems.length > 0 && (
             <>
               <h2 className="wbitespace-nowrap">
-                Subtotal ({quantity}{" "}{quantity === 1 ? "item" : "items"}):{" "}
+                Subtotal ({quantity} {quantity === 1 ? "item" : "items"}):{" "}
                 <span className="font-bold block">
                   CAD{" "}
                   {/* mathematical summation of the total price from cartItems */}

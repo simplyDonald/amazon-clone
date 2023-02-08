@@ -8,6 +8,7 @@ declare global {
       GITHUB_ID: string;
       GITHUB_SECRET: string;
       NEXTAUTH_URL?: string | undefined;
+      NEXTAUTH_SECRET?: string | undefined;
 
     }
   }

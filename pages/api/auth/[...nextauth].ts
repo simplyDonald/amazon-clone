@@ -7,6 +7,7 @@ import AppleProvider from "next-auth/providers/apple";
 
 export const authOptions = {
   // Configure one or more authentication providers
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     // GithubProvider({
     //   clientId: process.env.GITHUB_ID,
@@ -16,8 +17,7 @@ export const authOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-    })
+    }),
   ],
-  secret: process.env.NEXTAUTH_SECRET,
 };
 export default NextAuth(authOptions);
